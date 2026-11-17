@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aranya Corbett | Boutique Farmstay &amp; Wilderness Retreat</title>
+  <meta name="description" content="A serene boutique farmstay on the edge of Jim Corbett National Park. Mud cottages, organic farm-to-table dining, and curated tiger safari experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand" aria-label="Aranya Corbett Home">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 3C16 3 9 11 9 18C9 21.866 12.134 25 16 25C19.866 25 23 21.866 23 18C23 11 16 3 16 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M16 29V11M16 17L20 13M16 20L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Aranya</span>
+          <span class="brand-sub">Corbett Farmstay</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary Navigation">
+        <a href="#story">Our Story</a>
+        <a href="#stays">The Stays</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#location">Location</a>
+        <button class="btn btn-outline-light nav-cta open-booking-btn" type="button">Reserve Stay</button>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" role="img" aria-label="Misty morning over Jim Corbett forest and organic farm"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <p class="eyebrow">Dhikuli &bull; Jim Corbett National Park</p>
+      <h1 class="hero-title">Where the <em>Wilderness</em> Meets the Orchard</h1>
+      <p class="hero-subtitle">
+        An intimate 12-acre organic farmstay nestled beside the Kosi River and Sal forests. Wake to hornbill calls, dine from our earth-to-table kitchen, and venture into tiger country.
+      </p>
+      <div class="hero-actions">
+        <a href="#stays" class="btn btn-primary">Explore Cottages</a>
+        <a href="#experiences" class="btn btn-ghost">Safari &amp; Farm Life</a>
+      </div>
+    </div>
+
+    <!-- Quick Booking Bar -->
+    <div class="container booking-bar-wrap">
+      <form class="booking-bar" id="quickBookingForm" aria-label="Quick Reservation">
+        <div class="booking-field">
+          <label for="qb-checkin">Check-in</label>
+          <input type="date" id="qb-checkin" required />
+        </div>
+        <div class="booking-field">
+          <label for="qb-checkout">Check-out</label>
+          <input type="date" id="qb-checkout" required />
+        </div>
+        <div class="booking-field">
+          <label for="qb-guests">Guests</label>
+          <select id="qb-guests">
+            <option value="2 Adults">2 Adults</option>
+            <option value="2 Adults, 1 Child">2 Adults, 1 Child</option>
+            <option value="4 Adults">4 Adults</option>
+            <option value="Family (6 Guests)">Family (6 Guests)</option>
+          </select>
+        </div>
+        <div class="booking-field">
+          <label for="qb-stay">Accommodation</label>
+          <select id="qb-stay">
+            <option value="Canopy Mud Cottage">Canopy Mud Cottage</option>
+            <option value="Orchard Glass Suite">Orchard Glass Suite</option>
+            <option value="Kosi Riverside Tent">Kosi Riverside Tent</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary booking-submit">Check Availability</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Our Story / Philosophy -->
+  <section class="section story-section" id="story">
+    <div class="container story-grid">
+      <div class="story-media reveal">
+        <div class="story-img-main">
+          <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=1000&q=80" alt="Handcrafted mud and timber farmstay cottage surrounded by mango trees" loading="lazy" />
+        </div>
+        <div class="story-img-accent">
+          <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=700&q=80" alt="Fresh organic harvest from the farmstay garden" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="story-content reveal">
+        <span class="section-tag">Our Philosophy</span>
+        <h2 class="section-title">Slow Living on the Edge of India&rsquo;s Oldest Tiger Reserve</h2>
+        <p class="story-lead">
+          Built with sun-dried Kumaoni mud plaster, reclaimed teak, and river stone, Aranya Corbett is designed to breathe with the forest rather than stand apart from it.
+        </p>
+        <p class="story-text">
+          Just 12 minutes from the Bijrani Safari Gate, our working permaculture farm grows heirloom grains, lemongrass, turmeric, and mango orchards. Every stay directly supports local village artisans and wildlife corridor conservation.
+        </p>
+
+        <div class="story-stats">
+          <div class="stat-item">
+            <span class="stat-num">12</span>
+            <span class="stat-label">Acres of Organic Orchard</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">9</span>
+            <span class="stat-label">Private Mud &amp; Glass Stays</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">12 min</span>
+            <span class="stat-label">To Bijrani Safari Gate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodations -->
+  <section class="section stays-section" id="stays">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Sanctuaries</span>
+        <h2 class="section-title">Thoughtfully Crafted Stays</h2>
+        <p class="section-desc">
+          Nine low-impact dwellings spaced generously apart for uninterrupted birdsong, private verandahs, and starlit evenings.
+        </p>
+      </div>
+
+      <div class="stays-grid">
+        <!-- Card 1 -->
+        <article class="stay-card reveal">
+          <div class="stay-img-wrap">
+            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=900&q=80" alt="Canopy Mud Cottage exterior with verandah" loading="lazy" />
+            <span class="stay-badge">Most Loved</span>
+          </div>
+          <div class="stay-body">
+            <div class="stay-meta">
+              <span>580 sq ft</span>
+              <span>&bull;</span>
+              <span>Up to 3 Guests</span>
+            </div>
+            <h3 class="stay-title">Canopy Mud Cottage</h3>
+            <p class="stay-desc">
+              Naturally cooled lime-and-mud walls with a private machan deck overlooking the mango orchard and distant Shivalik foothills.
+            </p>
+            <ul class="stay-amenities">
+              <li>Outdoor Rain Shower</li>
+              <li>Private Sit-out Deck</li>
+              <li>Kumaoni Breakfast</li>
+            </ul>
+            <div class="stay-footer">
+              <div class="stay-price">
+                <span class="price-val">&#8377;11,500</span>
+                <span class="price-unit">/ night</span>
+              </div>
+              <button class="btn btn-outline-dark open-booking-btn" data-stay="Canopy Mud Cottage" type="button">Book Cottage</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="stay-card reveal">
+          <div class="stay-img-wrap">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=80" alt="Orchard Glass Suite interior" loading="lazy" />
+            <span class="stay-badge">Luxury Pick</span>
+          </div>
+          <div class="stay-body">
+            <div class="stay-meta">
+              <span>760 sq ft</span>
+              <span>&bull;</span>
+              <span>Up to 4 Guests</span>
+            </div>
+            <h3 class="stay-title">Orchard Glass Suite</h3>
+            <p class="stay-desc">
+              Floor-to-ceiling frameless glass walls opening onto a private plunge pool and herb garden, crafted for immersive forest views.
+            </p>
+            <ul class="stay-amenities">
+              <li>Heated Plunge Pool</li>
+              <li>Soaking Copper Tub</li>
+              <li>Personal Butler</li>
+            </ul>
+            <div class="stay-footer">
+              <div class="stay-price">
+                <span class="price-val">&#8377;16,800</span>
+                <span class="price-unit">/ night</span>
+              </div>
+              <button class="btn btn-outline-dark open-booking-btn" data-stay="Orchard Glass Suite" type="button">Book Suite</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="stay-card reveal">
+          <div class="stay-img-wrap">
+            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=900&q=80" alt="Kosi Riverside Luxury Safari Tent" loading="lazy" />
+            <span class="stay-badge">Wilderness</span>
+          </div>
+          <div class="stay-body">
+            <div class="stay-meta">
+              <span>640 sq ft</span>
+              <span>&bull;</span>
+              <span>Up to 2 Guests</span>
+            </div>
+            <h3 class="stay-title">Kosi Riverside Tent</h3>
+            <p class="stay-desc">
+              Double-layered canvas pavilion pitched above the Kosi riverbed with teakwood furnishings, lantern-lit porch, and firepit access.
+            </p>
+            <ul class="stay-amenities">
+              <li>Riverbank View</li>
+              <li>Evening Bonfire</li>
+              <li>Stargazing Telescope</li>
+            </ul>
+            <div class="stay-footer">
+              <div class="stay-price">
+                <span class="price-val">&#8377;13,200</span>
+                <span class="price-unit">/ night</span>
+              </div>
+              <button class="btn btn-outline-dark open-booking-btn" data-stay="Kosi Riverside Tent" type="button">Book Tent</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences (Interactive Tabs) -->
+  <section class="section experiences-section" id="experiences">
+    <div class="container">
+      <div class="section-header light reveal">
+        <span class="section-tag">Curated Days</span>
+        <h2 class="section-title">Wilderness &amp; Farm Experiences</h2>
+        <p class="section-desc">
+          From dawn Gypsy safaris in Dhikala to slow afternoons harvesting organic vegetables with our chefs.
+        </p>
+      </div>
+
+      <div class="exp-tabs" role="tablist" aria-label="Experience Categories">
+        <button class="exp-tab active" role="tab" aria-selected="true" data-tab="safari">Jeep Safaris</button>
+        <button class="exp-tab" role="tab" aria-selected="false" data-tab="farm">Farm-to-Table</button>
+        <button class="exp-tab" role="tab" aria-selected="false" data-tab="trails">River &amp; Birding</button>
+      </div>
+
+      <div class="exp-panels">
+        <!-- Panel 1: Safari -->
+        <div class="exp-panel active" id="panel-safari" role="tabpanel">
+          <div class="exp-grid">
+            <div class="exp-image">
+              <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1000&q=80" alt="Bengal tiger in Jim Corbett National Park grasslands" loading="lazy" />
+            </div>
+            <div class="exp-details">
+              <h3>Dawn &amp; Dusk Tiger Safaris</h3>
+              <p>
+                Our resident naturalists arrange 4x4 Gypsy permits across Corbett&rsquo;s premier zones—Dhikala grasslands, Bijrani&rsquo;s dense Sal canopies, and Jhirna&rsquo;s rocky riverbeds.
+              </p>
+              <ul class="exp-list">
+                <li><strong>Dhikala Zone:</strong> 45 min drive &bull; Iconic grasslands &amp; Ramganga reservoir</li>
+                <li><strong>Bijrani Zone:</strong> 12 min drive &bull; High Bengal tiger &amp; elephant density</li>
+                <li><strong>Jhirna &amp; Dhela:</strong> 25 min drive &bull; Year-round open wilderness</li>
+              </ul>
+              <button class="btn btn-primary open-booking-btn" data-stay="Safari Package Inquiry" type="button">Plan Your Safari</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Farm-to-Table -->
+        <div class="exp-panel" id="panel-farm" role="tabpanel">
+          <div class="exp-grid">
+            <div class="exp-image">
+              <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1000&q=80" alt="Freshly plated organic farm-to-table Kumaoni meal" loading="lazy" />
+            </div>
+            <div class="exp-details">
+              <h3>Kumaoni Slow-Fire Kitchen</h3>
+              <p>
+                Ninety percent of our produce travels less than 100 meters from soil to plate. Enjoy wood-fired clay-pot curries, millet rotis, and wild honey harvested from our apiary.
+              </p>
+              <ul class="exp-list">
+                <li><strong>Morning Harvest Walk:</strong> Pick herbs &amp; greens with our head chef</li>
+                <li><strong>Orchard High Tea:</strong> Pahadi masala chai &amp; warm mandua cookies</li>
+                <li><strong>Starlit Bonfire Dinner:</strong> Slow-cooked Kumaoni thali under the Sal trees</li>
+              </ul>
+              <button class="btn btn-primary open-booking-btn" data-stay="Farm Dining &amp; Stay" type="button">Reserve Dining Stay</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: River & Birding -->
+        <div class="exp-panel" id="panel-trails" role="tabpanel">
+          <div class="exp-grid">
+            <div class="exp-image">
+              <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=80" alt="Sunlight filtering through dense Sal forest trail" loading="lazy" />
+            </div>
+            <div class="exp-details">
+              <h3>600+ Bird Species &amp; Kosi Trails</h3>
+              <p>
+                Walk quietly along the Kosi River boulders at sunrise with binoculars in hand. Spot Great Hornbills, Crested Kingfishers, and Himalayan Rubythroats before breakfast.
+              </p>
+              <ul class="exp-list">
+                <li><strong>Guided Birding Walk:</strong> 6:00 AM daily with Swarovski optics</li>
+                <li><strong>Kosi River Picnic:</strong> Barefoot tea by clear mountain streams</li>
+                <li><strong>Village Pottery &amp; Loom:</strong> Visit nearby Kumaoni artisan homes</li>
+              </ul>
+              <button class="btn btn-primary open-booking-btn" data-stay="Nature &amp; Birding Retreat" type="button">Book Nature Retreat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filterable Gallery -->
+  <section class="section gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Visual Journal</span>
+        <h2 class="section-title">Life at Aranya Corbett</h2>
+      </div>
+
+      <div class="gallery-filters" role="group" aria-label="Filter Gallery">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="farm">The Farm</button>
+        <button class="filter-btn" data-filter="suites">Suites</button>
+        <button class="filter-btn" data-filter="wilderness">Wilderness</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <figure class="gallery-item" data-category="wilderness">
+          <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" alt="Misty Sal forest canopy at dawn" loading="lazy" />
+          <figcaption>Morning mist in the Sal corridor</figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="suites">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Warm minimal suite bedroom with natural linen" loading="lazy" />
+          <figcaption>Sunlit Canopy Cottage interiors</figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="farm">
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80" alt="Golden hour over organic farm fields" loading="lazy" />
+          <figcaption>Golden hour across the organic orchard</figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="wilderness">
+          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Shivalik foothills above Jim Corbett" loading="lazy" />
+          <figcaption>Foothills of the Shivalik range</figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="farm">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="Farm-to-table dinner setting" loading="lazy" />
+          <figcaption>Earth-to-table evening supper</figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="suites">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Private plunge pool surrounded by tropical greenery" loading="lazy" />
+          <figcaption>Orchard Suite private plunge pool</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="testimonial-wrap reveal">
+        <span class="section-tag">Guest Notes</span>
+        <div class="testimonial-slider" id="testimonialSlider">
+          <blockquote class="testimonial active">
+            <p>&ldquo;Waking up to hornbills outside our mud cottage, followed by fresh millet pancakes from the farm and a tigress sighting at Bijrani—Aranya felt like a true sanctuary.&rdquo;</p>
+            <footer>&mdash; Meera &amp; Vikramaditya S., New Delhi</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>&ldquo;No loud music, no concrete blocks—just the sound of the Kosi River and the warmth of Kumaoni hospitality. The Orchard Glass Suite is architectural poetry.&rdquo;</p>
+            <footer>&mdash; Elena Rostova, London</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>&ldquo;Our kids spent hours feeding the farm cows and learning organic composting. The naturalist team here knows every bird call in Corbett.&rdquo;</p>
+            <footer>&mdash; Dr. Arjun Kulkarni, Bengaluru</footer>
+          </blockquote>
+        </div>
+        <div class="testimonial-dots" id="testimonialDots" aria-label="Testimonial Navigation">
+          <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+          <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Inquiry -->
+  <section class="section location-section" id="location">
+    <div class="container location-grid">
+      <div class="location-info reveal">
+        <span class="section-tag">Getting Here</span>
+        <h2 class="section-title">Nestled in Dhikuli, Ramnagar</h2>
+        <p class="location-desc">
+          Easily accessible by road and rail from Delhi NCR, yet completely enveloped by buffer-zone forest.
+        </p>
+
+        <div class="distance-list">
+          <div class="distance-item">
+            <span class="dist-place">Bijrani Safari Gate</span>
+            <span class="dist-time">12 mins (6 km)</span>
+          </div>
+          <div class="distance-item">
+            <span class="dist-place">Ramnagar Railway Station</span>
+            <span class="dist-time">20 mins (11 km)</span>
+          </div>
+          <div class="distance-item">
+            <span class="dist-place">Pantnagar Airport (PGH)</span>
+            <span class="dist-time">1 hr 45 mins (82 km)</span>
+          </div>
+          <div class="distance-item">
+            <span class="dist-place">New Delhi (via NH-9)</span>
+            <span class="dist-time">5 hrs (250 km)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="inquiry-card reveal">
+        <h3>Plan Your Escape</h3>
+        <p>Write to our concierge for custom safari permits, family buyouts, or seasonal orchard rates.</p>
+        <form id="contactForm" class="contact-form">
+          <div class="form-row">
+            <input type="text" id="cf-name" placeholder="Full Name" required />
+            <input type="email" id="cf-email" placeholder="Email Address" required />
+          </div>
+          <div class="form-row">
+            <input type="tel" id="cf-phone" placeholder="Phone / WhatsApp" required />
+            <select id="cf-interest">
+              <option value="Cottage Stay">Cottage / Suite Stay</option>
+              <option value="Safari + Stay">Safari + Stay Package</option>
+              <option value="Full Farm Buyout">Full Farmstay Buyout</option>
+            </select>
+          </div>
+          <textarea id="cf-message" rows="3" placeholder="Preferred dates or special requests..."></textarea>
+          <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
+          <p class="form-feedback" id="contactFeedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">Aranya Corbett</span>
+        <p>Village Dhikuli, Jim Corbett National Park<br />Ramnagar, Uttarakhand 244715</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="#story">Our Story</a>
+        <a href="#stays">The Stays</a>
+        <a href="#experiences">Safari &amp; Farm</a>
+        <a href="#gallery">Gallery</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Concierge</h4>
+        <p>+91 99100 01152</p>
+        <p>stay@aranyacorbett.com</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Aranya Corbett Farmstay. Crafted with respect for the wild.</p>
+    </div>
+  </footer>
+
+  <!-- Reservation Modal -->
+  <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModal" aria-label="Close Modal">&times;</button>
+      <span class="section-tag">Direct Reservation</span>
+      <h3 id="modalTitle">Reserve Your Sanctuary</h3>
+      <form id="modalBookingForm" class="modal-form">
+        <div class="form-group">
+          <label for="mb-stay">Selected Experience / Stay</label>
+          <input type="text" id="mb-stay" readonly />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mb-checkin">Check-in</label>
+            <input type="date" id="mb-checkin" required />
+          </div>
+          <div class="form-group">
+            <label for="mb-checkout">Check-out</label>
+            <input type="date" id="mb-checkout" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mb-guests">Guests</label>
+            <input type="text" id="mb-guests" value="2 Adults" required />
+          </div>
+          <div class="form-group">
+            <label for="mb-phone">WhatsApp / Phone</label>
+            <input type="tel" id="mb-phone" placeholder="+91 98..." required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mb-name">Guest Name</label>
+          <input type="text" id="mb-name" placeholder="Your full name" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Request Confirmation</button>
+        <p class="form-feedback" id="modalFeedback" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close Image">&times;</button>
+    <img src="" alt="" id="lightboxImg" />
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <!-- Floating Social Buttons (Right Side) -->
+  <aside class="social-float" aria-label="Social Media &amp; Quick Chat">
+    <a href="https://wa.me/919910001152?text=Hello%20Aranya%20Corbett%2C%20I%20would%20like%20to%20inquire%20about%20a%20stay." target="_blank" rel="noopener noreferrer" class="social-btn social-whatsapp" aria-label="Chat on WhatsApp" title="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.79 14.12c-.24.68-1.41 1.3-1.95 1.38-.5.07-1.14.1-1.84-.12-.43-.14-.98-.32-1.69-.63-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.03-2.48.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.59.84 2.04.91 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.27 1.65 2.05 1.13 1.01 2.09 1.32 2.39 1.47.3.15.47.12.65-.07.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.07.12.07.72-.17 1.4z"/>
+      </svg>
+    </a>
+    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-btn social-facebook" aria-label="Visit Facebook Page" title="Facebook Page">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.87.24-1.46 1.49-1.46H16.7V4.96c-.3-.04-1.32-.13-2.51-.13-2.48 0-4.19 1.51-4.19 4.3V11H7.2v3H10v8h3.5z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-btn social-instagram" aria-label="Visit Instagram Page" title="Instagram Page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+    </a>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
