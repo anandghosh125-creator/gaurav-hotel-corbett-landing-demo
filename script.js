@@ -156,6 +156,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 6000);
   }
 
+  const GOOGLE_SCRIPT_URL =
+    'https://script.google.com/macros/s/AKfycbzzLXXOk_APGUNcNYJkQ2nKhUszvKJK6C7XOGsZC7Y-fxB_leuXqTll47zRwjtYopQ/exec';
+
+  const sendToGoogleSheet = async (payload) => {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8',
+      },
+      body: JSON.stringify(payload),
+    });
+  };
+
   // 8. Booking Modal Logic
   const bookingModal = document.getElementById('bookingModal');
   const closeModalBtn = document.getElementById('closeModal');
@@ -163,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const quickBookingForm = document.getElementById('quickBookingForm');
   const modalBookingForm = document.getElementById('modalBookingForm');
   const modalFeedback = document.getElementById('modalFeedback');
+  const mbSubmit = document.getElementById('mb-submit');
 
   const closeModal = () => {
     if (!bookingModal) return;
@@ -213,12 +228,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (modalBookingForm) {
-      modalBookingForm.addEventListener('submit', (e) => {
+      modalBookingForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        if (modalFeedback) {
-          modalFeedback.textContent = 'Confirming your request...';
+        const originalText = mbSubmit ? mbSubmit.textContent : 'Request Confirmation';
+        if (mbSubmit) {
+          mbSubmit.disabled = true;
+          mbSubmit.textContent = 'Sending...';
         }
-        window.location.href = 'thank-you.html';
+        if (modalFeedback) modalFeedback.textContent = '';
+
+        const payload = {
+          name: document.getElementById('mb-name')?.value.trim() || '',
+          phone: document.getElementById('mb-phone')?.value.trim() || '',
+          email: document.getElementById('mb-email')?.value.trim() || '',
+          checkin: document.getElementById('mb-checkin')?.value || '',
+          checkout: document.getElementById('mb-checkout')?.value || '',
+          guests: document.getElementById('mb-guests')?.value.trim() || '',
+          message: `Stay Selected: ${document.getElementById('mb-stay')?.value || ''}`,
+        };
+
+        try {
+          await sendToGoogleSheet(payload);
+          window.location.href = 'thank-you.html';
+        } catch (err) {
+          if (mbSubmit) {
+            mbSubmit.disabled = false;
+            mbSubmit.textContent = originalText;
+          }
+          if (modalFeedback) {
+            modalFeedback.textContent =
+              'Unable to send right now. Please try again or message us on WhatsApp.';
+          }
+        }
       });
     }
   }
@@ -230,17 +271,70 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 9. Contact Form Submission -> Redirect to thank-you.html
+  // 9. Contact Form Submission -> Send JSON to Google Apps Script & redirect to thank-you.html
   const contactForm = document.getElementById('contactForm');
   const contactFeedback = document.getElementById('contactFeedback');
+  const cfCheckin = document.getElementById('cf-checkin');
+  const cfCheckout = document.getElementById('cf-checkout');
+  const cfSubmit = document.getElementById('cf-submit');
+
+  if (cfCheckin && cfCheckout) {
+    const today = new Date();
+    const nextDay = new Date(today);
+    nextDay.setDate(today.getDate() + 2);
+    const fmt = (d) => d.toISOString().split('T')[0];
+
+    cfCheckin.min = fmt(today);
+    cfCheckin.value = fmt(today);
+    cfCheckout.min = fmt(today);
+    cfCheckout.value = fmt(nextDay);
+
+    cfCheckin.addEventListener('change', () => {
+      if (cfCheckout.value <= cfCheckin.value) {
+        const updated = new Date(cfCheckin.value);
+        updated.setDate(updated.getDate() + 1);
+        cfCheckout.value = fmt(updated);
+      }
+      cfCheckout.min = cfCheckin.value;
+    });
+  }
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (contactFeedback) {
-        contactFeedback.textContent = 'Sending your enquiry...';
+
+      const originalBtnText = cfSubmit ? cfSubmit.textContent : 'Send Inquiry';
+      if (cfSubmit) {
+        cfSubmit.disabled = true;
+        cfSubmit.textContent = 'Sending...';
       }
-      window.location.href = 'thank-you.html';
+      if (contactFeedback) {
+        contactFeedback.textContent = '';
+      }
+
+      const payload = {
+        name: document.getElementById('cf-name')?.value.trim() || '',
+        phone: document.getElementById('cf-phone')?.value.trim() || '',
+        email: document.getElementById('cf-email')?.value.trim() || '',
+        checkin: cfCheckin?.value || '',
+        checkout: cfCheckout?.value || '',
+        guests: document.getElementById('cf-guests')?.value || '',
+        message: document.getElementById('cf-message')?.value.trim() || '',
+      };
+
+      try {
+        await sendToGoogleSheet(payload);
+        window.location.href = 'thank-you.html';
+      } catch (err) {
+        if (cfSubmit) {
+          cfSubmit.disabled = false;
+          cfSubmit.textContent = originalBtnText;
+        }
+        if (contactFeedback) {
+          contactFeedback.textContent =
+            'Unable to send right now. Please try again or message us on WhatsApp.';
+        }
+      }
     });
   }
 

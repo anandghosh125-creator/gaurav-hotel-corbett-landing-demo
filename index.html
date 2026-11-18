@@ -432,19 +432,46 @@
         <p>Write to our concierge for custom safari permits, family buyouts, or seasonal orchard rates.</p>
         <form id="contactForm" class="contact-form">
           <div class="form-row">
-            <input type="text" id="cf-name" placeholder="Full Name" required />
-            <input type="email" id="cf-email" placeholder="Email Address" required />
+            <div class="form-group">
+              <label for="cf-name">Full Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Full Name" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-phone">Phone / WhatsApp</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="Phone / WhatsApp" required />
+            </div>
           </div>
           <div class="form-row">
-            <input type="tel" id="cf-phone" placeholder="Phone / WhatsApp" required />
-            <select id="cf-interest">
-              <option value="Cottage Stay">Cottage / Suite Stay</option>
-              <option value="Safari + Stay">Safari + Stay Package</option>
-              <option value="Full Farm Buyout">Full Farmstay Buyout</option>
-            </select>
+            <div class="form-group">
+              <label for="cf-email">Email Address</label>
+              <input type="email" id="cf-email" name="email" placeholder="Email Address" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-guests">Guests</label>
+              <select id="cf-guests" name="guests" required>
+                <option value="2 Adults">2 Adults</option>
+                <option value="2 Adults, 1 Child">2 Adults, 1 Child</option>
+                <option value="4 Adults">4 Adults</option>
+                <option value="Family (6 Guests)">Family (6 Guests)</option>
+                <option value="Group (8+ Guests)">Group (8+ Guests)</option>
+              </select>
+            </div>
           </div>
-          <textarea id="cf-message" rows="3" placeholder="Preferred dates or special requests..."></textarea>
-          <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-checkin">Check-In Date</label>
+              <input type="date" id="cf-checkin" name="checkin" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-checkout">Check-Out Date</label>
+              <input type="date" id="cf-checkout" name="checkout" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="3" placeholder="Preferred cottage, safari zone, or special requests..."></textarea>
+          </div>
+          <button type="submit" id="cf-submit" class="btn btn-primary btn-full">Send Inquiry</button>
           <p class="form-feedback" id="contactFeedback" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -508,11 +535,17 @@
             <input type="tel" id="mb-phone" placeholder="+91 98..." required />
           </div>
         </div>
-        <div class="form-group">
-          <label for="mb-name">Guest Name</label>
-          <input type="text" id="mb-name" placeholder="Your full name" required />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mb-name">Guest Name</label>
+            <input type="text" id="mb-name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="mb-email">Email Address</label>
+            <input type="email" id="mb-email" placeholder="you@example.com" required />
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-full">Request Confirmation</button>
+        <button type="submit" id="mb-submit" class="btn btn-primary btn-full">Request Confirmation</button>
         <p class="form-feedback" id="modalFeedback" role="status" aria-live="polite"></p>
       </form>
     </div>
