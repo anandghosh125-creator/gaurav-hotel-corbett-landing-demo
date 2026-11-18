@@ -355,4 +355,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealEls.forEach((el) => revealObserver.observe(el));
   }
+  // Strict 10-digit phone number filter as the user types
+const phoneInputs = document.querySelectorAll('input[type="tel"]');
+phoneInputs.forEach(input => {
+  input.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+  });
+});
+
+// Form submission validation guard
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', function (e) {
+    const phoneInput = form.querySelector('input[type="tel"]');
+    if (phoneInput) {
+      const phoneVal = phoneInput.value.trim();
+      if (!/^\d{10}$/.test(phoneVal)) {
+        e.preventDefault(); // Stop form submission
+        alert('Please enter an exact 10-digit mobile number before submitting.');
+        phoneInput.focus();
+        return;
+      }
+    }
+  });
+});
 });
